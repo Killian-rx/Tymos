@@ -36,10 +36,63 @@ class InscriptionPage extends StatelessWidget {
               ),
             )
           ),
+          Container(
+            width: 300,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 200),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: 'arthurobraqueto@gmail.com', // Texte indicatif
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(vertical: 5), // Espace interne
+                    hintStyle: TextStyle(color : Colors.grey) // Pas de bordure interne
+                  ),
+                  style: TextStyle(fontSize: 13, color: Colors.black), // Texte noir
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: 300,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 100),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: 'arthurobraqueto@gmail.com', // Texte indicatif
+                    border: InputBorder.none,
+                    hintStyle: TextStyle(color : Colors.grey) // Pas de bordure interne
+                  ),
+                  style: TextStyle(fontSize: 13, color: Colors.black), // Texte noir
+                ),
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 600),
+              padding: const EdgeInsets.only(top: 100),
               child: GestureDetector(
                 onTap: () {
                 },
@@ -96,7 +149,7 @@ class InscriptionPage extends StatelessWidget {
             ),
           ),
         ],
-      )
+      ),
     );
   }
 }
