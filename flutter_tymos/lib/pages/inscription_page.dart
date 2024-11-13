@@ -135,7 +135,7 @@ class InscriptionPage extends StatelessWidget {
             )
           ),
           Padding(
-            padding: EdgeInsets.only(top: 220), // Décalage vers le bas
+            padding: EdgeInsets.only(top: 250), // Décalage vers le bas
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center, // Centre les éléments horizontalement
               children: [
@@ -158,28 +158,32 @@ class InscriptionPage extends StatelessWidget {
               ],
             ),
           ),
-          Align(
+          Container(
+            width: 300,
             alignment: Alignment.center,
             child: Padding(
               padding: const EdgeInsets.only(top: 400),
-              child: GestureDetector(
-                onTap: () {
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30), 
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
-                  child: const Text(
+                ),
+                child: Center(
+                  child: Text(
                     'Se connecter avec Google',
                     style: TextStyle(
-                      fontSize: 15, 
+                      fontSize: 13, 
                       color: Colors.black, 
                     ),
                   ),
-                )
-              )
-            )
+                ),
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.center,
