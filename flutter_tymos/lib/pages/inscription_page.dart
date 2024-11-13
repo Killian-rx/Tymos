@@ -37,10 +37,25 @@ class InscriptionPage extends StatelessWidget {
             )
           ),
           Container(
-            width: 300,
+            alignment: Alignment.centerLeft, // Aligne le texte à gauche
+            padding: EdgeInsets.only(left: 20), // Ajoute un espace de 20 pixels à gauche
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 320),
+              child: Text(
+                'Inscription',
+                style: TextStyle(
+                  fontSize: 18, 
+                  color: Colors.black, 
+                  fontWeight: FontWeight.bold, 
+                ),
+              ),
+            )
+          ),
+          Container(
+            width: 300, 
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 200),
+              padding: const EdgeInsets.only(bottom: 250),
               child: Container(
                 height: 40, // Fixe la hauteur pour contrôler l'espace vertical
                 decoration: BoxDecoration(
@@ -53,13 +68,12 @@ class InscriptionPage extends StatelessWidget {
                 ),
                 child: Center(
                   child: TextField(
-                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                        hintText: 'thibaud@gmail.com', // Texte indicatif
+                        hintText: 'arthurobraqueto@gmail.com', // Texte indicatif
                         border: InputBorder.none,
                         isDense: true, // Réduit légèrement l'espace interne
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 0), // Espace interne
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 0), // Espace interne
                         hintStyle: TextStyle(
                             color: Colors.grey) // Pas de bordure interne
                         ),
@@ -74,7 +88,7 @@ class InscriptionPage extends StatelessWidget {
             width: 300,
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 100),
+              padding: const EdgeInsets.only(bottom: 60),
               child: Container(
                 height: 40, // Fixe la hauteur pour contrôler l'espace vertical
                 decoration: BoxDecoration(
@@ -87,13 +101,12 @@ class InscriptionPage extends StatelessWidget {
                 ),
                 child: Center(
                   child: TextField(
-                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                        hintText: 'patrick@gmail.com', // Texte indicatif
+                        hintText: 'Mot de passe', // Texte indicatif
                         border: InputBorder.none,
                         isDense: true, // Réduit légèrement l'espace interne
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 0), // Espace interne
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 0), // Espace interne
                         hintStyle: TextStyle(
                             color: Colors.grey) // Pas de bordure interne
                         ),
