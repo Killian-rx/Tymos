@@ -12,8 +12,7 @@ class InscriptionPage extends StatelessWidget {
           Container(
             color: Colors.white,
           ),
-          Align(
-            // Logo
+          Align( // Logo
             alignment: Alignment.topCenter,
             child: Padding(
               padding: const EdgeInsets.only(top: 120),
@@ -24,18 +23,19 @@ class InscriptionPage extends StatelessWidget {
             ),
           ),
           Align(
-              child: Padding(
+            child: Padding(
             padding: EdgeInsets.only(bottom: 480),
-            child: Text(
-              'revisitez chez vous !',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
+              child: Text(
+                'revisitez chez vous !',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18, 
+                  color: Colors.black, 
+                  fontWeight: FontWeight.normal, 
+                ),
               ),
-            ),
-          )),
+            )
+          ),
           Container(
             width: 300,
             alignment: Alignment.center,
@@ -109,60 +109,137 @@ class InscriptionPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 100),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
                       colors: [
-                        Color(0xFF84CFEE),
-                        Color(0xFF9BCB8E),
+                        Color(0xFF84CFEE), 
+                        Color(0xFF9BCB8E), 
                         Color(0xFFFAEA78),
                       ],
                     ),
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(30), 
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 120, vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
                   child: const Text(
                     'Continuer',
                     style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
+                      fontSize: 15, 
+                      color: Colors.white, 
                     ),
                   ),
+                )
+              )
+            )
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 220), // Décalage vers le bas
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center, // Centre les éléments horizontalement
+              children: [
+                Container(
+                  width: 120,   // Largeur de la première barre
+                  height: 1,    // Hauteur de la barre
+                  color: Colors.grey,  // Couleur grise
                 ),
-              ),
+                SizedBox(width: 10), // Espace entre la première barre et le texte
+                Text(
+                  'or',
+                  style: TextStyle(fontSize: 13, color: Colors.grey), // Style du texte "or"
+                ),
+                SizedBox(width: 10), // Espace entre le texte et la deuxième barre
+                Container(
+                  width: 120,   // Largeur de la deuxième barre
+                  height: 1,    // Hauteur de la barre
+                  color: Colors.grey,  // Couleur grise
+                ),
+              ],
             ),
           ),
           Align(
-            // Texte de connexion
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 50),
+              padding: const EdgeInsets.only(top: 400),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/connexion');
                 },
-                child: RichText(
-                  text: const TextSpan(
-                    text: "Vous avez déjà un compte ? ",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: "Connectez-vous",
-                        style: TextStyle(
-                          color: Color(0xFF84CFEE),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30), 
                   ),
-                ),
-              ),
-            ),
+                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
+                  child: const Text(
+                    'Se connecter avec Google',
+                    style: TextStyle(
+                      fontSize: 15, 
+                      color: Colors.black, 
+                    ),
+                  ),
+                )
+              )
+            )
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 550),
+              child: GestureDetector(
+                onTap: () {
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFF84CFEE), 
+                        Color(0xFF9BCB8E), 
+                        Color(0xFFFAEA78),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(30), 
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
+                  child: const Text(
+                    'Continuer',
+                    style: TextStyle(
+                      fontSize: 15, 
+                      color: Colors.white, 
+                    ),
+                  ),
+                )
+              )
+            )
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 700),
+              child: GestureDetector(
+                onTap: () {
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFF84CFEE), 
+                        Color(0xFF9BCB8E), 
+                        Color(0xFFFAEA78),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(30), 
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
+                  child: const Text(
+                    'Continuer',
+                    style: TextStyle(
+                      fontSize: 15, 
+                      color: Colors.white, 
+                    ),
+                  ),
+                )
+              )
+            )
           ),
         ],
       ),
