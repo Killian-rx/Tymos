@@ -34,7 +34,7 @@ class InscriptionPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             child: Padding(
             padding: EdgeInsets.only(bottom: 480),
               child: Text(
@@ -147,7 +147,7 @@ class InscriptionPage extends StatelessWidget {
             )
           ),
           Padding(
-            padding: EdgeInsets.only(top: 250), // Décalage vers le bas
+            padding: const EdgeInsets.only(top: 250), // Décalage vers le bas
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center, // Centre les éléments horizontalement
               children: [
@@ -156,12 +156,12 @@ class InscriptionPage extends StatelessWidget {
                   height: 1,    // Hauteur de la barre
                   color: Colors.grey,  // Couleur grise
                 ),
-                SizedBox(width: 10), // Espace entre la première barre et le texte
-                Text(
+                const SizedBox(width: 10), // Espace entre la première barre et le texte
+                const Text(
                   'or',
                   style: TextStyle(fontSize: 13, color: Colors.grey), // Style du texte "or"
                 ),
-                SizedBox(width: 10), // Espace entre le texte et la deuxième barre
+                const SizedBox(width: 10), // Espace entre le texte et la deuxième barre
                 Container(
                   width: 120,   // Largeur de la deuxième barre
                   height: 1,    // Hauteur de la barre
@@ -190,8 +190,8 @@ class InscriptionPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset('assets/chercher.png', width: 15, height: 15),
-                      SizedBox(width: 10),
-                      Text(
+                      const SizedBox(width: 10),
+                      const Text(
                         'Se connecter avec Google',
                         style: TextStyle(
                           fontSize: 13, 
@@ -224,8 +224,8 @@ class InscriptionPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset('assets/logo-apple.png', width: 15, height: 15),
-                      SizedBox(width: 10),
-                      Text(
+                      const SizedBox(width: 10),
+                      const Text(
                         'Se connecter avec Apple',
                         style: TextStyle(
                           fontSize: 13, 
@@ -258,8 +258,8 @@ class InscriptionPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset('assets/email.png', width: 15, height: 15),
-                      SizedBox(width: 10),
-                      Text(
+                      const SizedBox(width: 10),
+                      const Text(
                         "Se connecter avec l'Email",
                         style: TextStyle(
                           fontSize: 13, 
