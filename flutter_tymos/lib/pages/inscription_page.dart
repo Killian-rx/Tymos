@@ -9,8 +9,20 @@ class InscriptionPage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            color: Colors.white,
+          Align( // logo
+            alignment: Alignment.center,
+            child: Positioned(
+              child: Opacity(
+                opacity: 0.2,
+            child: Transform.scale(
+              scale: 1.5, // Zoomer l'image (1 = taille normale, >1 = zoom)
+              child: Image.asset(
+                'assets/logocourt.png',
+                fit: BoxFit.cover,  // Maintient la couverture même après zoom
+              ),
+            ),
+              ),
+            ), 
           ),
           Align( // Logo
             alignment: Alignment.topCenter,
@@ -174,76 +186,91 @@ class InscriptionPage extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                  child: Text(
-                    'Se connecter avec Google',
-                    style: TextStyle(
-                      fontSize: 13, 
-                      color: Colors.black, 
-                    ),
+                  child : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/chercher.png', width: 15, height: 15),
+                      SizedBox(width: 10),
+                      Text(
+                        'Se connecter avec Google',
+                        style: TextStyle(
+                          fontSize: 13, 
+                          color: Colors.black, 
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
           ),
-          Align(
+          Container(
+            width: 300,
             alignment: Alignment.center,
             child: Padding(
               padding: const EdgeInsets.only(top: 550),
-              child: GestureDetector(
-                onTap: () {
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF84CFEE), 
-                        Color(0xFF9BCB8E), 
-                        Color(0xFFFAEA78),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(30), 
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
-                  child: const Text(
-                    'Continuer',
-                    style: TextStyle(
-                      fontSize: 15, 
-                      color: Colors.white, 
-                    ),
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/logo-apple.png', width: 15, height: 15),
+                      SizedBox(width: 10),
+                      Text(
+                        'Se connecter avec Apple',
+                        style: TextStyle(
+                          fontSize: 13, 
+                          color: Colors.black, 
+                        ),
+                      ),
+                    ],
                   ),
-                )
-              )
-            )
+                ),
+              ),
+            ),
           ),
-          Align(
+          Container(
+            width: 300,
             alignment: Alignment.center,
             child: Padding(
               padding: const EdgeInsets.only(top: 700),
-              child: GestureDetector(
-                onTap: () {
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF84CFEE), 
-                        Color(0xFF9BCB8E), 
-                        Color(0xFFFAEA78),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(30), 
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 10), 
-                  child: const Text(
-                    'Continuer',
-                    style: TextStyle(
-                      fontSize: 15, 
-                      color: Colors.white, 
-                    ),
-                  ),
-                )
-              )
-            )
+                ),
+                child: Center(
+                  child : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/email.png', width: 15, height: 15),
+                      SizedBox(width: 10),
+                      Text(
+                        "Se connecter avec l'Email",
+                        style: TextStyle(
+                          fontSize: 13, 
+                          color: Colors.black, 
+                        ),
+                      ),
+                    ],
+                  )
+                ),
+              ),
+            ),
           ),
         ],
       ),
