@@ -23,7 +23,7 @@ class InscriptionPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
               child: Padding(
             padding: EdgeInsets.only(bottom: 480),
             child: Text(
@@ -51,7 +51,7 @@ class InscriptionPage extends StatelessWidget {
                     width: 1,
                   ),
                 ),
-                child: Center(
+                child: const Center(
                   child: TextField(
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
@@ -85,7 +85,7 @@ class InscriptionPage extends StatelessWidget {
                     width: 1,
                   ),
                 ),
-                child: Center(
+                child: const Center(
                   child: TextField(
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
