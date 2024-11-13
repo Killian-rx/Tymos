@@ -23,7 +23,7 @@ class ConnexionPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          const Align(
             child: Padding(
             padding: EdgeInsets.only(bottom: 480),
               child: Text(
