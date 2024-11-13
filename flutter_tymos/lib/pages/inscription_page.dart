@@ -55,7 +55,7 @@ class InscriptionPage extends StatelessWidget {
                   child: TextField(
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                        hintText: 'thibaud@gmail.com', // Texte indicatif
+                        hintText: 'thibd@gmail.com', // Texte indicatif
                         border: InputBorder.none,
                         isDense: true, // Réduit légèrement l'espace interne
                         contentPadding:
