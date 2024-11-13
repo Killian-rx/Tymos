@@ -40,10 +40,11 @@ class InscriptionPage extends StatelessWidget {
             width: 300,
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 250),
+              padding: const EdgeInsets.only(bottom: 200),
               child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.white, // Fond blanc
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(
                     color: Colors.grey, // Bordure noire
@@ -54,7 +55,7 @@ class InscriptionPage extends StatelessWidget {
                   child: TextField(
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
-                        hintText: 'thibd@gmail.com', // Texte indicatif
+                        hintText: 'thibaud@gmail.com', // Texte indicatif
                         border: InputBorder.none,
                         isDense: true, // Réduit légèrement l'espace interne
                         contentPadding:
@@ -75,6 +76,7 @@ class InscriptionPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 100),
               child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
                 decoration: BoxDecoration(
                   color: Colors.white, // Fond blanc
                   borderRadius: BorderRadius.circular(30),
@@ -83,149 +85,85 @@ class InscriptionPage extends StatelessWidget {
                     width: 1,
                   ),
                 ),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                      hintText: 'arthurobraqueto@gmail.com', // Texte indicatif
-                      border: InputBorder.none,
-                      hintStyle: TextStyle(
-                          color: Colors.grey) // Pas de bordure interne
-                      ),
-                  style: TextStyle(
-                      fontSize: 13, color: Colors.black), // Texte noir
+                child: Center(
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                        hintText: 'patrick@gmail.com', // Texte indicatif
+                        border: InputBorder.none,
+                        isDense: true, // Réduit légèrement l'espace interne
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 0), // Espace interne
+                        hintStyle: TextStyle(
+                            color: Colors.grey) // Pas de bordure interne
+                        ),
+                    style: TextStyle(
+                        fontSize: 13, color: Colors.black), // Texte noir
+                  ),
                 ),
               ),
             ),
           ),
           Align(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: const EdgeInsets.only(top: 100),
-                  child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFF84CFEE),
-                              Color(0xFF9BCB8E),
-                              Color(0xFFFAEA78),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 120, vertical: 10),
-                        child: const Text(
-                          'Continuer',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )))),
-          Padding(
-            padding: EdgeInsets.only(top: 220), // Décalage vers le bas
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment
-                  .center, // Centre les éléments horizontalement
-              children: [
-                Container(
-                  width: 120, // Largeur de la première barre
-                  height: 1, // Hauteur de la barre
-                  color: Colors.grey, // Couleur grise
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 100),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFF84CFEE),
+                        Color(0xFF9BCB8E),
+                        Color(0xFFFAEA78),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 120, vertical: 10),
+                  child: const Text(
+                    'Continuer',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                SizedBox(
-                    width: 10), // Espace entre la première barre et le texte
-                Text(
-                  'or',
-                  style: TextStyle(
-                      fontSize: 13, color: Colors.grey), // Style du texte "or"
-                ),
-                SizedBox(
-                    width: 10), // Espace entre le texte et la deuxième barre
-                Container(
-                  width: 120, // Largeur de la deuxième barre
-                  height: 1, // Hauteur de la barre
-                  color: Colors.grey, // Couleur grise
-                ),
-              ],
+              ),
             ),
           ),
           Align(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: const EdgeInsets.only(top: 400),
-                  child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+            // Texte de connexion
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 50),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/connexion');
+                },
+                child: RichText(
+                  text: const TextSpan(
+                    text: "Vous avez déjà un compte ? ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "Connectez-vous",
+                        style: TextStyle(
+                          color: Color(0xFF84CFEE),
+                          fontWeight: FontWeight.bold,
                         ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 120, vertical: 10),
-                        child: const Text(
-                          'Se connecter avec Google',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                          ),
-                        ),
-                      )))),
-          Align(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: const EdgeInsets.only(top: 550),
-                  child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFF84CFEE),
-                              Color(0xFF9BCB8E),
-                              Color(0xFFFAEA78),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 120, vertical: 10),
-                        child: const Text(
-                          'Continuer',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )))),
-          Align(
-              alignment: Alignment.center,
-              child: Padding(
-                  padding: const EdgeInsets.only(top: 700),
-                  child: GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFF84CFEE),
-                              Color(0xFF9BCB8E),
-                              Color(0xFFFAEA78),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 120, vertical: 10),
-                        child: const Text(
-                          'Continuer',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      )))),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
