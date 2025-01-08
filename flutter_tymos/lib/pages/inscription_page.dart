@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui'; 
 
 class InscriptionPage extends StatelessWidget {
   const InscriptionPage({super.key});
@@ -14,15 +15,21 @@ class InscriptionPage extends StatelessWidget {
             child: Positioned(
               child: Opacity(
                 opacity: 0.2,
-            child: Transform.scale(
-              scale: 1.5, // Zoomer l'image (1 = taille normale, >1 = zoom)
-              child: Image.asset(
-                'assets/logocourt.png',
-                fit: BoxFit.cover,  // Maintient la couverture même après zoom
-              ),
-            ),
+                child: Transform.scale(
+                  scale: 1.5, // Zoomer l'image (1 = taille normale, >1 = zoom)
+                  child: Image.asset(
+                    'assets/logocourt.png',
+                    fit: BoxFit.cover,  // Maintient la couverture même après zoom
+                  ),
+                ),
               ),
             ), 
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+            child: Container(
+              color: Colors.black.withOpacity(0), // Couleur transparente pour conserver le flou
+            ),
           ),
           Align( // Logo
             alignment: Alignment.topCenter,
@@ -50,15 +57,14 @@ class InscriptionPage extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.centerLeft, // Aligne le texte à gauche
-            padding: EdgeInsets.only(left: 20), // Ajoute un espace de 20 pixels à gauche
-            child: Padding(
+            padding: const EdgeInsets.only(left: 60), // Ajoute un espace de 20 pixels à gauche
+            child: const Padding(
               padding: EdgeInsets.only(bottom: 320),
               child: Text(
-                'Inscription',
+                'Votre adresse mail*',
                 style: TextStyle(
-                  fontSize: 18, 
+                  fontSize: 15, 
                   color: Colors.black, 
-                  fontWeight: FontWeight.bold, 
                 ),
               ),
             )
@@ -95,6 +101,20 @@ class InscriptionPage extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft, // Aligne le texte à gauche
+            padding: const EdgeInsets.only(left: 60), // Ajoute un espace de 20 pixels à gauche
+            child: const Padding(
+              padding: EdgeInsets.only(bottom: 130),
+              child: Text(
+                'Choisissez votre mot de passe*',
+                style: TextStyle(
+                  fontSize: 15, 
+                  color: Colors.black, 
+                ),
+              ),
+            )
           ),
           Container(
             width: 300,
