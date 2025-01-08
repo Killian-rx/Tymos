@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'sources/home/view/home_page.dart';
 import 'sources/connexion/view/connexion_page.dart';
 import 'sources/inscription/view/inscription_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Initialisation des widgets
+  await Firebase.initializeApp(); // Initialisation de Firebase
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Page d'accueil",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const AccueilPage(),
+        '/': (context) => const HomePage(),
         '/connexion': (context) => const ConnexionPage(),
-        '/inscription': (context) => const InscriptionPage(),
-      }
+        '/inscription': (context) => InscriptionPage(),
+      },
     );
   }
 }
-
-
-
-
-

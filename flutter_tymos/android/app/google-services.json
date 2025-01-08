@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1055292276867",
+    "project_id": "tymos-169fd",
+    "storage_bucket": "tymos-169fd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055292276867:android:ae9e93cac929da24799bb6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_tymos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4CIuhvWBh6_bJDIeeYY-I-c0WsSPOofA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055292276867:android:f8f6330d87f98252799bb6",
+        "android_client_info": {
+          "package_name": "com.example.tymos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4CIuhvWBh6_bJDIeeYY-I-c0WsSPOofA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
