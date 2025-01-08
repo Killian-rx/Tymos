@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:ui'; 
 
 
 class ConnexionPage extends StatelessWidget {
@@ -9,9 +9,28 @@ class ConnexionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        alignment: Alignment.center,
         children: <Widget>[
-          Container(
-            color: Colors.white,
+          Align( // logo
+            alignment: Alignment.center,
+            child: Positioned(
+              child: Opacity(
+                opacity: 0.2,
+                child: Transform.scale(
+                  scale: 1.5, // Zoomer l'image (1 = taille normale, >1 = zoom)
+                  child: Image.asset(
+                    'assets/logocourt.png',
+                    fit: BoxFit.cover,  // Maintient la couverture même après zoom
+                  ),
+                ),
+              ),
+            ), 
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+            child: Container(
+              color: Colors.black.withOpacity(0), // Couleur transparente pour conserver le flou
+            ),
           ),
           Align( // Logo
             alignment: Alignment.topCenter,
@@ -36,6 +55,192 @@ class ConnexionPage extends StatelessWidget {
                 ),
               ),
             )
+          ),
+          Container(
+            width: 300,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 300),
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: Center(
+                  child : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/chercher.png', width: 15, height: 15),
+                      const SizedBox(width: 10),
+                      const Text(
+                        'Se connecter avec Google',
+                        style: TextStyle(
+                          fontSize: 13, 
+                          color: Colors.black, 
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: 300,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 200),
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/logo-apple.png', width: 15, height: 15),
+                      const SizedBox(width: 10),
+                      const Text(
+                        'Se connecter avec Apple',
+                        style: TextStyle(
+                          fontSize: 13, 
+                          color: Colors.black, 
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 50), // Décalage vers le bas
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center, // Centre les éléments horizontalement
+              children: [
+                Container(
+                  width: 120,   // Largeur de la première barre
+                  height: 1,    // Hauteur de la barre
+                  color: Colors.grey,  // Couleur grise
+                ),
+                const SizedBox(width: 10), // Espace entre la première barre et le texte
+                const Text(
+                  'or',
+                  style: TextStyle(fontSize: 13, color: Colors.grey), // Style du texte "or"
+                ),
+                const SizedBox(width: 10), // Espace entre le texte et la deuxième barre
+                Container(
+                  width: 120,   // Largeur de la deuxième barre
+                  height: 1,    // Hauteur de la barre
+                  color: Colors.grey,  // Couleur grise
+                ),
+              ],
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft, // Aligne le texte à gauche
+            padding: const EdgeInsets.only(left: 60), // Ajoute un espace de 20 pixels à gauche
+            child: const Padding(
+              padding: EdgeInsets.only(top: 80),
+              child: Text(
+                'Votre adresse mail*',
+                style: TextStyle(
+                  fontSize: 15, 
+                  color: Colors.black, 
+                ),
+              ),
+            )
+          ),
+          Container(
+            width: 300, 
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 180),
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: const Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'arthurobraqueto@gmail.com', // Texte indicatif
+                        border: InputBorder.none,
+                        isDense: true, // Réduit légèrement l'espace interne
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 0), // Espace interne
+                        hintStyle: TextStyle(
+                            color: Colors.grey) // Pas de bordure interne
+                        ),
+                    style: TextStyle(
+                        fontSize: 13, color: Colors.black), // Texte noir
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft, // Aligne le texte à gauche
+            padding: const EdgeInsets.only(left: 60), // Ajoute un espace de 20 pixels à gauche
+            child: const Padding(
+              padding: EdgeInsets.only(top: 290),
+              child: Text(
+                'Choisissez votre mot de passe*',
+                style: TextStyle(
+                  fontSize: 15, 
+                  color: Colors.black, 
+                ),
+              ),
+            )
+          ),
+          Container(
+            width: 300,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 390),
+              child: Container(
+                height: 40, // Fixe la hauteur pour contrôler l'espace vertical
+                decoration: BoxDecoration(
+                  color: Colors.white, // Fond blanc
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.grey, // Bordure noire
+                    width: 1,
+                  ),
+                ),
+                child: const Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'Mot de passe', // Texte indicatif
+                        border: InputBorder.none,
+                        isDense: true, // Réduit légèrement l'espace interne
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 0), // Espace interne
+                        hintStyle: TextStyle(
+                            color: Colors.grey) // Pas de bordure interne
+                        ),
+                    style: TextStyle(
+                        fontSize: 13, color: Colors.black), // Texte noir
+                  ),
+                ),
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.center,
