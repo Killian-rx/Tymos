@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../../models/user.dart';
 
 class InscriptionViewModel {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

@@ -17,7 +17,7 @@ class DatabaseHelper {
   Future<List<User>> getUsers() async {
     final querySnapshot = await _firestore.collection('users').get();
     return querySnapshot.docs.map((doc) {
-      return User.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+      return User.fromMap(doc.data(), doc.id);
     }).toList();
   }
 }
