@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui'; // Nécessaire pour ImageFilter
 import '../../../database_helper.dart';
+import '../view_models/inscription_view_model.dart';
+import "../../../models/user.dart";
+import '../../test/view/test.dart';
 
 class InscriptionPage extends StatefulWidget {
   const InscriptionPage({super.key});
@@ -13,10 +16,12 @@ class _InscriptionPageState extends State<InscriptionPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final DatabaseHelper _databaseHelper = DatabaseHelper();
+  final InscriptionViewModel _viewModel = InscriptionViewModel();
 
-  void _registerUser() async {
+  void _registerUser(BuildContext context) async {
     final String email = _emailController.text.trim();
     final String password = _passwordController.text.trim();
+    
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -29,11 +34,14 @@ class _InscriptionPageState extends State<InscriptionPage> {
 
     try {
       await _databaseHelper.addUser(email, password); // Appel à DatabaseHelper
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Inscription réussie !'),
-        ),
-      );
+      User? userToken= await _databaseHelper.findUserByEmail(email);
+      // Naviguez vers la page suivante en passant le token
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TestPage(id: userToken?.id), // Transmettez le token
+          ),
+        );
       _emailController.clear();
       _passwordController.clear();
     } catch (e) {
@@ -44,6 +52,13 @@ class _InscriptionPageState extends State<InscriptionPage> {
       );
     }
   }
+  void _handleGoogleSignIn() {
+      _viewModel.registerWithGoogle(context);
+    }
+
+  
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +203,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
             child: Padding(
               padding: const EdgeInsets.only(top: 100),
               child: GestureDetector(
-                onTap: _registerUser,
+                onTap: () => _registerUser(context),
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
@@ -241,30 +256,33 @@ class _InscriptionPageState extends State<InscriptionPage> {
             alignment: Alignment.center,
             child: Padding(
               padding: const EdgeInsets.only(top: 400),
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
+              child: GestureDetector(
+                onTap: _handleGoogleSignIn,
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/chercher.png', width: 15, height: 15),
-                      const SizedBox(width: 10),
-                      const Text(
-                        'Se connecter avec Google',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/chercher.png', width: 15, height: 15),
+                        const SizedBox(width: 10),
+                        const Text(
+                          'Se connecter avec Google',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:provider/provider.dart';
 import '../view_models/auth_view_models.dart';
+import '../../../models/user.dart';
+import '../../../database_helper.dart';
+import '../../test/view/test.dart';
 
 class ConnexionPage extends StatefulWidget {
   const ConnexionPage({super.key});
@@ -14,6 +17,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final DatabaseHelper _databaseHelper = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +148,16 @@ class _ConnexionPageState extends State<ConnexionPage> {
                             _passwordController.text,
                           );
                           if (success) {
-                            Navigator.pushReplacementNamed(context, '/home');
+                            User? userToken= await _databaseHelper.findUserByEmail(_emailController.text);
+                              // Naviguez vers la page suivante en passant le token
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TestPage(id: userToken?.id), // Transmettez le token
+                                  ),
+                                );
+                              _emailController.clear();
+                              _passwordController.clear();
                           } else {
                             _showErrorSnackbar(
                               context,
