@@ -52,14 +52,9 @@ class _InscriptionPageState extends State<InscriptionPage> {
           MaterialPageRoute(
             builder: (context) => TestPage(id: userToken?.id), // Transmettez le token
           ),
-        );
-      await _databaseHelper.addUser(email, password);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Inscription réussie !')),
       );
       _emailController.clear();
       _passwordController.clear();
-      Navigator.pushNamed(context, '/home'); // Redirige après inscription
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Erreur lors de l\'inscription : $e')),
@@ -144,16 +139,17 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     width: 1,
                   ),
                 ),
-                child: const TextField(
+                child: TextField(
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Adresse email', // Hint texte pour l'email
                     border: InputBorder.none,
                     isDense: true,
                     contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
-                  style: TextStyle(fontSize: 13, color: Colors.black),
+                  style: const TextStyle(fontSize: 13, color: Colors.black),
                 ),
               ),
               const SizedBox(height: 20),
@@ -167,7 +163,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
               PasswordField(passwordController: _passwordController),
               const SizedBox(height: 20),
               GestureDetector(
-                onTap: _registerUser,
+                onTap: () => _registerUser(),
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
