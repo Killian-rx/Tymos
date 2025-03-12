@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PasswordField extends StatefulWidget {
   final TextEditingController passwordController;
 
-  const PasswordField({Key? key, required this.passwordController}) : super(key: key);
+  const PasswordField({super.key, required this.passwordController});
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();

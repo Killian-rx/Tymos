@@ -16,7 +16,7 @@ class AuthViewModel extends ChangeNotifier {
       final List<User> users = await _databaseHelper.getUsers();
 
       // Rechercher l'utilisateur correspondant
-      final User? user = users.firstWhere(
+      final User user = users.firstWhere(
         (u) => u.email == email && u.password == password,
         orElse: () => User(id: '', email: '', password: ''), // Utilisateur par défaut
       );

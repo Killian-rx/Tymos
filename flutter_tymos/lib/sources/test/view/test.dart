@@ -5,7 +5,7 @@ class TestPage extends StatelessWidget {
   
   final String? id;
 
-  const TestPage({Key? key, required this.id}) : super(key: key);
+  const TestPage({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {

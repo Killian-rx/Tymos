@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.flutterApplication1</string>
+	<string>com.tymos.flutter</string>
 	<key>PROJECT_ID</key>
 	<string>tymos-169fd</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1055292276867:ios:34d3ad7c687e99f2799bb6</string>
+	<string>1:1055292276867:ios:12e9d74443422aef799bb6</string>
 </dict>
 </plist>
